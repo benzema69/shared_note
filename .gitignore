@@ -1,6 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
 shared_note.db
 shared_note.db-*
-*.db-wal
-*.db-shm
-__pycache__/
-icon.png
+storage/
+runtime-test/
+*.log

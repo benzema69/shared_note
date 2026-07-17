@@ -1,5 +1,5 @@
 @echo off
-title Shared Note
+title Shared Note V4
 cd /d "%~dp0"
-python shared_note.py
+python -m shared_note
 pause

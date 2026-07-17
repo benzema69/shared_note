@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Shared Note V4</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span id="connection-dot" class="dot"></span>
+      <div>
+        <strong>Shared Note</strong>
+        <small>V4 · LAN Drop</small>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <label class="device-field">
+        <span>Appareil</span>
+        <input id="device-name" maxlength="64" autocomplete="off" placeholder="Laptop">
+      </label>
+      <label class="toggle" title="Synchronise la note courante sans l’ajouter à l’historique">
+        <input id="private-mode" type="checkbox">
+        <span>Privé</span>
+      </label>
+      <button id="history-toggle" class="button subtle" type="button">Historique</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="editor-column">
+      <div class="editor-head">
+        <span>Note partagée</span>
+        <div class="editor-actions">
+          <span id="save-status" class="status">Prêt</span>
+          <button id="copy-note" class="button subtle" type="button">Copier</button>
+          <button id="clear-note" class="button danger-ghost" type="button">Effacer</button>
+        </div>
+      </div>
+      <textarea id="note" spellcheck="true" placeholder="Colle un lien, une commande, une note…"></textarea>
+
+      <section id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Choisir ou déposer des fichiers">
+        <input id="file-input" type="file" multiple hidden>
+        <div class="drop-icon">↥</div>
+        <strong>Dépose tes fichiers ici</strong>
+        <span>ou clique pour choisir · Ctrl/⌘ + V accepte aussi les images</span>
+        <small id="upload-status"></small>
+      </section>
+    </section>
+
+    <aside id="history-panel" class="history-panel" aria-label="Historique">
+      <div class="panel-head">
+        <div>
+          <strong>Historique unifié</strong>
+          <small>Textes et fichiers</small>
+        </div>
+        <button id="close-history" class="icon-button" type="button" aria-label="Fermer">×</button>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-view="active" type="button">Actifs</button>
+        <button class="tab" data-view="trash" type="button">Corbeille</button>
+      </div>
+
+      <div id="history-list" class="history-list"></div>
+      <div id="history-empty" class="empty-state" hidden>Rien ici pour le moment.</div>
+    </aside>
+  </main>
+
+  <template id="history-item-template">
+    <article class="history-item">
+      <div class="preview-slot"></div>
+      <div class="item-body">
+        <div class="item-topline">
+          <span class="type-badge"></span>
+          <time></time>
+        </div>
+        <strong class="item-title"></strong>
+        <pre class="text-preview"></pre>
+        <div class="item-meta"></div>
+        <div class="item-actions"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

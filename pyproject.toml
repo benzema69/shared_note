@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shared-note"
+version = "4.0.0a1"
+description = "Local-first LAN clipboard and file drop"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Shared Note contributors" }]
+dependencies = [
+  "Flask>=3.0,<4",
+  "Pillow>=10.4,<12",
+  "filetype>=1.2,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+shared-note = "shared_note.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["shared_note*"]
+
+[tool.setuptools.package-data]
+shared_note = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
