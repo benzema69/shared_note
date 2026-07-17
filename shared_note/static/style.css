@@ -256,7 +256,7 @@ body:not(.sidebar-collapsed) .sidebar-toggle svg { transform: rotate(180deg); }
   align-items: center;
 }
 .top-actions { gap: 8px; }
-.mobile-menu { display: none; }
+.icon-button.mobile-menu { display: none; }
 .private-indicator {
   padding: 4px 7px;
   border: 1px solid rgba(87, 221, 161, .26);
@@ -362,7 +362,9 @@ body:not(.sidebar-collapsed) .sidebar-toggle svg { transform: rotate(180deg); }
 .tab { padding: 8px; color: var(--muted); }
 .tab.active { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
 .history-list { flex: 1; overflow-y: auto; padding: 2px 12px 16px; }
+.history-list:empty { display: none; }
 .empty-state { padding: 38px 18px; text-align: center; color: var(--muted); font-size: 13px; }
+.empty-state:not([hidden]) { flex: 1; display: grid; place-items: center; }
 
 .history-item {
   display: grid;
@@ -610,7 +612,7 @@ kbd {
   .sidebar-collapsed .nav-item { justify-content: flex-start; padding: 0 11px; }
   .sidebar-collapsed .nav-item::after { display: none; }
   .sidebar-collapsed .server-state { justify-content: flex-start; padding: 11px 14px; }
-  .mobile-menu { display: grid; }
+  .icon-button.mobile-menu { display: grid; }
   .topbar { min-height: 62px; padding: 8px 10px; gap: 10px; }
   .page-heading { flex: 1; display: block; }
   .page-heading strong,
