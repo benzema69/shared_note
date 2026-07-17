@@ -160,7 +160,7 @@ def create_app(settings: AppSettings | None = None) -> Flask:
 
     @app.get("/health")
     def health():
-        return jsonify({"status": "ok", "version": "4.0.0a1"})
+        return jsonify({"status": "ok", "version": "4.1.0"})
 
     # Backward-compatible live-note endpoints from V3.
     @app.get("/content")
